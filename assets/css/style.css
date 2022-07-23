@@ -1,12 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+:root {
+    /* font size */
+    --font-tiny: 1rem;
+    --font-small: 1.5rem;
+    --font-medium: 2.5rem;
+    --font-large: 4rem;
+    --font-xl: 6rem;
+    --font-big: 10rem;
+    /* colors */
+    --c-white: #fff;
+    --c-red-soft: #ff3753;
+    --c-red-light: #fa9ca8;
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
 body {
     overflow: hidden;
+    font-size: var(--font-small);
 }
 
 .container {
@@ -20,69 +36,93 @@ body {
 }
 
 img {
-    width: 120px;
+    width: var(--font-big);
     padding: 20px 0;
     cursor: pointer;
 }
 
 .content {
     position: absolute;
-    top: 50%;
+    top: 45%;
+    width: 100%;
     transform: translateY(-50%);
-    color: #fff;
+    color: var(--c-white);
 }
 
 .content marquee {
-    width: 65%;
+    width: 50%;
     margin-bottom: 25px;
 }
 
 .content h1 {
-    font-size: 64px;
+    margin-bottom: 15px;
+    font-size: var(--font-large);
     font-weight: 600;
 }
 
 .content h1 span {
-    color: #ff3753;
-}
-
-.content button {
-    background: transparent;
-    height: 50px;
-    border: 2px solid #fff;
-    outline: none;
-    padding: 12px 25px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-    cursor: pointer;
-}
-
-.content button img {
-    width: 15px;
-    margin-left: 10px;
+    color: var(--c-red-soft);
 }
 
 .launch-time {
     display: flex;
 }
 
-.launch-time div {
-    flex-basis: 120px;
+.launch-time .time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 130px;
 }
 
-.launch-time div p {
-    font-size: 60px;
-    margin-bottom: 4px;
+.launch-time .time p {
+    font-size: var(--font-medium);
+    margin-bottom: 0.3rem;
+}
+
+.time span {
+    font-size: var(--font-tiny);
 }
 
 .rocket {
-    width: 200px;
+    width: var(--font-medium);
     position: absolute;
     right: 10%;
     bottom: 0;
     animation: rocket 4s linear infinite;
+}
+
+footer {
+    padding: 0 8%;
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    color: var(--c-white);
+}
+
+.jopi {
+    font-family: 'Kaushan Script', cursive;
+    font-size: var(--font-tiny);
+    opacity: 0.6;
+}
+
+.jopi span {
+    color: var(--c-red-soft);
+}
+
+.jopi a {
+    text-decoration: none;
+    transition: font-size .2s;
+}
+
+.jopi a:hover {
+    font-size: var(--font-small);
+}
+
+.jopi a span {
+    font-family: 'Kaushan Script', cursive;
+    color: var(--c-red-light);
 }
 
 @keyframes rocket {
@@ -96,5 +136,47 @@ img {
     100% {
         bottom: 105%;
         opacity: 1;
+    }
+}
+
+
+/* 
+iPhone 5S is an example of a Breakpoint 1 with 320px
+iPhone 6+ is an example of a Breakpoint 2 with 414px
+iPad Mini is an example of a Breakpoint 3 with 703px
+iPad Air is an example of a Breakpoint 4 with 768px
+*/
+
+@media only screen and (max-width: 414px) {
+    .content h1,
+    .launch-time {
+        font-size: var(--font-small);
+    }
+    .launch-time .time p {
+        font-size: 1.3rem
+    }
+    .launch-time .time span {
+        font-size: .5rem
+    }
+    .launch-time .time {
+        flex-basis: 60px;
+    }
+}
+
+@media only screen and (min-width: 415px) and (max-width: 703px) {
+    .content h1 {
+        font-size: var(--font-medium);
+    }
+    .launch-time {
+        font-size: var(--font-small);
+    }
+    .launch-time .time {
+        flex-basis: 80px;
+    }
+}
+
+@media only screen and (min-width: 704px) and (max-width: 768px) {
+    .content h1 {
+        font-size: var(--font-large);
     }
 }
